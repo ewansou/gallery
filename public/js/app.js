@@ -15,8 +15,8 @@
         init: function() {
             this.mostRecent();
             this.getData();
-            this.aboutInfo();
-            this.mobileNav();
+            //this.aboutInfo();
+            //this.mobileNav();
             this.attachImageClicked();
         },
         /**
@@ -37,7 +37,7 @@
         
         /**
          * [Interaction to open mobile navigation]
-         */
+        
         mobileNav: function() {
             var btMobNav = $('#js-mobNav'),
                 nav = $('.nav');
@@ -52,7 +52,7 @@
             });
 
         },
-        
+         */
         /**
          * [get data ajax and send to render method]
          */
@@ -104,7 +104,7 @@
                 if( w >= 900 ) {
                     lastAnimate = $('#imgContent').find(':nth-child(2)').addClass('animated fadeInLeft');
                 }
-
+                /*
                 if( w <= 900 ) {
                     lastAnimate = $('#imgContent').find(':nth-child(1)').addClass('animated fadeInDown');
                 }
@@ -118,7 +118,7 @@
                     if( w <= 900 ) {
                         lastAnimate = $('#imgContent').find(':nth-child(1)').addClass('animated fadeInDown');
                     }
-                });
+                });*/
         },
 
         /**
@@ -136,11 +136,11 @@
 
                 imgWrap.html(result);
             });
-        },
+        }
 
         /**
          * [about view interaction show/hide]
-         */
+        
         aboutInfo: function() {
             var about = $('.aboutWrap'),
                 btClose = $('#js-closeAbout').find('a'),
@@ -167,7 +167,7 @@
                 }
             });
 
-        }
+        } */
 
     };
 
