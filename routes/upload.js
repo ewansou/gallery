@@ -8,6 +8,17 @@ var config = require("../model/config").config;
 
 var imgFolder = appDir +config.imgfoldername;
 
+var File = require('../model/file');
+// create csv file if it doesn't exist yet
+File.init();
+
+function insertCsv (item) {
+	var csvWritter = new File();
+	csvWritter.open( function () {
+		csvWritter.insert(item);
+		csvWritter.save ();
+	});
+}
 /**
  * generate file with random name
  * @param url image url to get extension of file
@@ -37,7 +48,6 @@ exports.upload = function (req, res) {
 	file.on('error', function(err) {
 		res.send(err);
 	});
-	
 	http.get(img.url, function(respone) {
 		respone.on('data', function(data) {
 				file.write(data);
@@ -45,8 +55,9 @@ exports.upload = function (req, res) {
 				file.end();
 				var dropbox = new DropboxClient(config.dropbox.consumer_key, config.dropbox.consumer_secret, 
 					config.dropbox.oauth_token, config.dropbox.oauth_token_secret);
+				
 					
-				img.imgtypes.split(",").forEach( function (img_type){
+				img.imgtypes.split(",").forEach( function (img_type) {
 					
 					var dropboxPath = [config.dropbox.image_folder[img_type], filename].join("/");
 
@@ -58,10 +69,19 @@ exports.upload = function (req, res) {
 
 					});
 				});
-				
+
+				//insert data into csv file
+				insertCsv([
+					filename,
+					img.username,
+					img.caption,
+					img.created_time
+				]);
+
 				res.send({
 					filename: filename
 				});
+
 			});
     });
 

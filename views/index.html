@@ -69,10 +69,11 @@ Designed with love and for fun by: Daniel Branca (twitter: @designerdanb)
 	<script id="mostRecent-tpl" type="text/x-handlebars-template">
 
 			<a href="{{data.1.images.standard_resolution.url}}" title="{{data.1.caption.text}}" target="_blank" class="Hvh">
-				<img src="{{data.1.images.standard_resolution.url}}" alt="{{data.1.caption.text}}" />
+				<img src="{{data.1.images.standard_resolution.url}}" alt="{{data.1.caption.text}}" data-photo-username="{{data.1.user.username}}" data-created-time="{{data.1.created_time}}"/>
 			</a>
 
 	</script>
+
 	<script id="dialog-tpl" type="text/x-handlebars-template">
 		
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: block;z-index: 1050;">
