@@ -39,14 +39,6 @@
 			 });
 	}
 
-	File.prototype.createFile = function (path) {
-
-	}
-
-	File.prototype.read = function () {
-
-	}
-
 	File.prototype.insert = function( record ) {
 		this._data.push(record);
 	}

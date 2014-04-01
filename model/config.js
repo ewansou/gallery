@@ -1,5 +1,6 @@
 config = {
 		dropbox: {
+			/* production */
 			consumer_key : 'ner5ats5affj4m8',
 			consumer_secret : 'iq4tsrrzlrtl4kh',
 			oauth_token_secret: '7tll7oh8y0idqn8',
@@ -8,7 +9,7 @@ config = {
 				_4r: "4R Pre PS edit",
 				half4r: "Half 4R Pre PS edit",
 				wallet: "Wallet Pre PS edit"
-			} 
+			}
 		},
 		mandrill:{
 			api_key : "zRsQ9cIpBL-ouzrJZSH7CA",
@@ -25,6 +26,10 @@ config = {
 			  charset: 'utf-8',
 			  database: 'heroku_3f325657610cb96'
 		},
-		imgfoldername: "/imageupload/"
+		imgfoldername: "/imageupload/",
+		instagram: {
+			// change number of image showed when the page first load
+			number_of_image: 40
+		}
 };
 exports.config = config;
