@@ -71,7 +71,7 @@ Instagram.set('maxSockets', 10);
  */
 Instagram.subscriptions.subscribe({
   object: 'tag',
-  object_id: 'picobunny',
+  object_id: 'nba',
   aspect: 'media',
   callback_url: 'http://instagram-real-time.herokuapp.com/callback',
   type: 'subscription',
@@ -108,7 +108,7 @@ Instagram.subscriptions.subscribe({
 */
 // if you want to unsubscribe to any hashtag you subscribe
 // just need to pass the ID Instagram send as response to you
-Instagram.subscriptions.unsubscribe({ id: '4324999' });
+Instagram.subscriptions.unsubscribe({ id: '4469868' });
 
 // https://devcenter.heroku.com/articles/using-socket-io-with-node-js-on-heroku
 io.configure(function () { 
@@ -152,7 +152,7 @@ app.get("/views", function(req, res){
  */
 io.sockets.on('connection', function (socket) {
   Instagram.tags.recent({ 
-      name: 'picobunny',
+      name: 'nba',
       complete: function(data) {
         var number_of_image = config.instagram.number_of_image,
             limit = data.length - number_of_image,
