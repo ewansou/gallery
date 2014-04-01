@@ -28,16 +28,14 @@ Dialog.prototype.attachEvent = function () {
 
 Dialog.prototype.uploadFile = function () {
 	var self = this;
-	
+	this._context.imgtypes  = this._imgType;
+
 	$.ajax({
 		url: '/upload',
 		type: 'POST',
-		data: {
-			img: self._context.url,
-			imgType: self._imgType
-		}
-	
+		data: this._context
 	}).done(function (data) {
+
 	     self.filename = data.filename;
 	     //$('.yes-btn').prop('disabled', false).text("Yes");
 	});

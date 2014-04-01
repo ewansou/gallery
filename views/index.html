@@ -61,7 +61,7 @@ Designed with love and for fun by: Daniel Branca (twitter: @designerdanb)
 	<script id="firstShow-tpl" type="text/x-handlebars-template">
 	{{#each firstShow}}
 		<a href="{{images.standard_resolution.url}}" title="{{caption.text}}" target="_blank">
-			<img src="{{images.standard_resolution.url}}" alt="{{caption.text}}" />
+			<img src="{{images.standard_resolution.url}}" alt="{{caption.text}}" data-photo-username="{{user.username}}" data-created-time="{{created_time}}"/>
 		</a>
 	{{/each}}
 	</script>
@@ -80,7 +80,7 @@ Designed with love and for fun by: Daniel Branca (twitter: @designerdanb)
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		        <h4 class="modal-title" id="myModalLabel">{{title}}</h4>
+		        <h4 class="modal-title" id="myModalLabel">Print Photo</h4>
 		      </div>
 		      <div class="modal-body" id="dialog-content">
 	        	  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -97,17 +97,33 @@ Designed with love and for fun by: Daniel Branca (twitter: @designerdanb)
 				      	Please select the size of your photo printout
 				      	<div class="modal-btn-grp-2">
 				      			<div class="col-btn">
-				      				<div><button type="button" class="btn btn-primary img-type 4r">4R</button></div>
+				      				<div>
+					      				<label class="checkbox-inline">
+										  <input type="checkbox" class="image-type" value="_4r"> 4R
+										</label>
+				      				</div>
 				      				<img src="http://distilleryimage4.s3.amazonaws.com/60d30f04a85811e3b07312c17fb79e44_8.jpg" />
 				      			</div>
 				      			<div class="col-btn">
-				      				<div><button type="button" class="btn btn-primary img-type half-4r">Half 4R</button></div>
+				      				<div>
+					      				<label class="checkbox-inline">
+										  <input type="checkbox" class="image-type" value="half4r"> Half 4R
+										</label>					
+									</div>
 				      				<img src="http://distilleryimage4.s3.amazonaws.com/60d30f04a85811e3b07312c17fb79e44_8.jpg" />
 			      				</div>
 				      			<div class="col-btn">
-				      				<div><button type="button" class="btn btn-primary img-type wallet">Wallet</button></div>
+				      				<div>
+					      				<label class="checkbox-inline">
+										  <input type="checkbox" class="image-type" value="wallet"> Wallet
+										</label>
+				      				</div>
 				      				<img src="http://distilleryimage4.s3.amazonaws.com/60d30f04a85811e3b07312c17fb79e44_8.jpg" />
 		      					</div>
+						</div>
+						<span class="err-msg hide">Please choose at least one option</span>
+						<div class="modal-btn-grp">
+					        <button type="button" class="btn btn-primary yes-btn next-image-style">Next</button>
 						</div>
 				    </div>
 				    <div class="item">
