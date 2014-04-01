@@ -23,13 +23,19 @@
          * []
          */
         attachImageClicked: function(e){
+
         	var self = this,
-        	context = {
-        			title : "Print Photo"
-        	};
+        	context = {};
+
         	$(imgContent).on('click', 'img', function(e){
+
         		e.preventDefault();
+
         		context.url = $(this).attr("src");
+                context.caption = $(this).attr("alt");
+                context.username = $(this).attr("data-photo-username");
+                context.created_time = $(this).attr("data-created-time");
+
         		new Dialog(context, socket);
         		return false;
         	})
@@ -133,6 +139,7 @@
                     compiledTemplate = Handlebars.compile(source),
                     result = compiledTemplate(query),
                     imgWrap = $('#imgContent');
+                   // console.log(query);
 
                 imgWrap.html(result);
             });

@@ -8,6 +8,17 @@ var config = require("../model/config").config;
 
 var imgFolder = appDir +config.imgfoldername;
 
+var File = require('../model/file');
+// create csv file if it doesn't exist yet
+File.init();
+
+function insertCsv (item) {
+	var csvWritter = new File();
+	csvWritter.open( function () {
+		csvWritter.insert(item);
+		csvWritter.save ();
+	});
+}
 /**
  * generate file with random name
  * @param url image url to get extension of file
@@ -27,11 +38,13 @@ function getRandomFileName(url){
 /*
 * upload file to dropbox
 */
-exports.upload = function (img, req, res) {
+exports.upload = function (req, res) {
 	
+	var img = req.body;
 	var filename = getRandomFileName(img.url);
 	var locationPath = imgFolder + filename;
 	var file = fs.createWriteStream(locationPath);
+
 	file.on('error', function(err) {
 		res.send(err);
 	});
@@ -41,16 +54,34 @@ exports.upload = function (img, req, res) {
 			}).on('end', function() {
 				file.end();
 				var dropbox = new DropboxClient(config.dropbox.consumer_key, config.dropbox.consumer_secret, 
-					config.dropbox.oauth_token, config.dropbox.oauth_token_secret),
-					dropboxPath = [config.dropbox.image_folder[img.type], filename].join("/");
+					config.dropbox.oauth_token, config.dropbox.oauth_token_secret);
 				
-				dropbox.putFile(locationPath, dropboxPath, function (err, data) {
-					if(err) {
-						console.log(err);
-					}
+					
+				img.imgtypes.split(",").forEach( function (img_type) {
+					
+					var dropboxPath = [config.dropbox.image_folder[img_type], filename].join("/");
+
+					dropbox.putFile(locationPath, dropboxPath, function (err, data) {
+
+						if(err) {
+							console.log(err);
+						}
+
+					});
 				});
-				
-				res.send({filename: filename});
+
+				//insert data into csv file
+				insertCsv([
+					filename,
+					img.username,
+					img.caption,
+					img.created_time
+				]);
+
+				res.send({
+					filename: filename
+				});
+
 			});
     });
 

@@ -44,30 +44,33 @@ ChoosePhotoStyle.prototype = new Behavior();
 
 ChoosePhotoStyle.prototype.attachEvent = function () {
 	var self = this;
-	$('.img-type').click(function () {
+	$('.next-image-style').click(function () {
 
-		self.detachEvent();
+		var img_style = [];
 
-		if ($(this).hasClass("4r")) {
+		$(":checkbox.image-type").each( function () {
+			if( this.checked ) {
+				img_style.push( $(this).val() );
+			}
+		});
 
-			self._dialog.setImgType("_4r");
+		if( img_style.length ){
 
-		} else if ($(this).hasClass("half-4r")) {
+			self.detachEvent();
 
-			self._dialog.setImgType("half4r");
+			self._dialog.setImgType( img_style.join(",") );
+			self._dialog.uploadFile();
+			self._dialog.next (new Printout(self._dialog));
 
-		} else if ($(this).hasClass("wallet")) {
-
-			self._dialog.setImgType("wallet");
+		} else {
+			$(".err-msg").removeClass("hide");
 		}
-
-		self._dialog.uploadFile();
-		self._dialog.next (new Printout(self._dialog));
 		
 	});
 }
 ChoosePhotoStyle.prototype.detachEvent = function (){
-	$('.img-type').off('click');
+	$('.next-image-style').off('click');
+	$(".err-msg").addClass("hide");
 }
 /**
 * print out action

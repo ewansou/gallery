@@ -10,6 +10,7 @@ var Dropbox         = require('dropbox');
 var uploader = require('./routes/upload');
 var mail = require("./routes/mail");
 var emailModel = require("./model/email");
+var config = require("./model/config").config;
 
 /** 
  * this code is being used to integrate Dropbox account with Dropbox app 
@@ -24,15 +25,19 @@ app.requesttoken(function(status, request_token){
 	console.log(request_token);
 });
 return;
-
+*/
+/*
+var dbox  = require("dbox");
+var app   = dbox.app({ "app_key": config.dropbox.consumer_key, "app_secret": config.dropbox.consumer_secret });
 app.accesstoken({ 
-	  oauth_token_secret: 'eCR4JyK5YErZmFic',
-	  oauth_token: 'FcCHC3xhb3lLWT9V',
-	  authorize_url: 'https://www.dropbox.com/1/oauth/authorize?oauth_token=FcCHC3xhb3lLWT9V' }, function(status, access_token){
+	  oauth_token_secret: 'GzJE0Nd5n63Amapn',
+	  oauth_token: 'MhiY52cQ2R1Gnkct',
+	  authorize_url: 'https://www.dropbox.com/1/oauth/authorize?oauth_token=MhiY52cQ2R1Gnkct' }, function(status, access_token){
 	  console.log(access_token);
 });
 return;
 */
+
 
 
 
@@ -149,7 +154,14 @@ io.sockets.on('connection', function (socket) {
   Instagram.tags.recent({ 
       name: 'picobunny',
       complete: function(data) {
-        socket.emit('firstShow', { firstShow: data });
+        var number_of_image = config.instagram.number_of_image,
+            limit = data.length - number_of_image,
+            staredIndex = limit > 0 ? limit : 0,
+            aResult = [];
+        for( var i = staredIndex, length = data.length; i < length ; i++ ) {
+          aResult.push( data[i] );
+        }
+        socket.emit('firstShow', { firstShow: aResult });
       }
   });
 });
@@ -179,13 +191,7 @@ app.post('/callback', function(req, res) {
 /**
  * upload image to dropbox
  */
-app.post('/upload', function(req, res){
-    var img = req.body.img, imgtype = req.body.i
-    uploader.upload({
-      url: req.body.img,
-      type: req.body.imgType
-    }, req, res);
-});
+app.post('/upload', uploader.upload);
 /**
  * 
  */
