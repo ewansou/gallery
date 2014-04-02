@@ -73,9 +73,9 @@ exports.upload = function (req, res) {
 				//insert data into csv file
 				insertCsv([
 					filename,
-					img.username,
-					img.created_time,
-					img.caption
+					img.username.trim(),
+					img.created_time.trim(),
+					img.caption.trim().replace(/(\r\n|\n|\r)/gm," ")
 				]);
 
 				res.send({
