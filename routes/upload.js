@@ -25,15 +25,18 @@ function insertCsv (item) {
  * @returns {String} return filename with extension
  */
 
-function getRandomFileName(url){
-	var extension = url.split('.').pop();
+function getRandomFileName(img){
+	var extension = img.url.split('.').pop();
 	var text = "";
 	var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_";
 	
-	for( var i=0; i < 50; i++ ) {
+	for( var i=0; i < 10; i++ ) {
 	    text += possible.charAt(Math.floor(Math.random() * possible.length));
 	}
-	return text +"."+ extension;
+	return {
+		name: [img.username, img.created_time, text,".", extension].join(''),
+		randomText: text
+	}
 };
 /*
 * upload file to dropbox
@@ -41,7 +44,9 @@ function getRandomFileName(url){
 exports.upload = function (req, res) {
 	
 	var img = req.body;
-	var filename = getRandomFileName(img.url);
+	var oRandomFile = getRandomFileName(img);
+	var filename = oRandomFile.name;
+	var randomText = oRandomFile.randomText;
 	var locationPath = imgFolder + filename;
 	var file = fs.createWriteStream(locationPath);
 
@@ -74,7 +79,7 @@ exports.upload = function (req, res) {
 				insertCsv([
 					img.username,
 					img.created_time,
-					filename.substring(0, 10)
+					randomText
 				]);
 
 				res.send({
