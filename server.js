@@ -153,15 +153,9 @@ app.get("/views", function(req, res){
 io.sockets.on('connection', function (socket) {
   Instagram.tags.recent({ 
       name: 'nba',
+      count: config.instagram.number_of_image,
       complete: function(data) {
-        var number_of_image = config.instagram.number_of_image,
-            limit = data.length - number_of_image,
-            staredIndex = limit > 0 ? limit : 0,
-            aResult = [];
-        for( var i = staredIndex, length = data.length; i < length ; i++ ) {
-          aResult.push( data[i] );
-        }
-        socket.emit('firstShow', { firstShow: aResult });
+        socket.emit('firstShow', { firstShow: data });
       }
   });
 });

@@ -2,8 +2,8 @@
 
 	var csv = require("fast-csv"),
 	fs = require('fs'),
-	csvFile = "data/image.csv";
-	header = ["Name", "User name", "First caption", "Created time"];
+	csvFile = "data/ewansou-1396232247-fhgjiio987.csv";
+	header = ["username", "timecreated", "10digitrandom"];
 
 	File = function () {
 		this._data = [];

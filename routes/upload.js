@@ -72,10 +72,9 @@ exports.upload = function (req, res) {
 
 				//insert data into csv file
 				insertCsv([
-					filename,
 					img.username,
-					img.caption,
-					img.created_time
+					img.created_time,
+					filename.substring(0, 10)
 				]);
 
 				res.send({
