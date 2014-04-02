@@ -5,6 +5,9 @@
 	csvFile = "data/ewansou-1396232247-fhgjiio987.csv";
 	header = ["username", "timecreated", "10digitrandom"];
 
+	/** add to test */
+	var DropboxClient = require('dropbox-node').DropboxClient;
+
 	File = function () {
 		this._data = [];
 	}
@@ -22,6 +25,7 @@
 		csv
 			.write( data, {headers: true})
 			.pipe(ws);
+
 	}
 
 	File.prototype.open = function ( callback ) {
@@ -45,6 +49,26 @@
 
 	File.prototype.save = function () {
 		File.createFile( this._data );
+		File.upDropboxToTest();
+	}
+	File.upDropboxToTest = function () {
+		// up to dropbox for testing
+		var dropboxParam = {
+			consumer_key : '2h910c3khhxn3h9',
+			consumer_secret : '46w1uvamgsqlyxk',
+			oauth_token_secret : 'fedqkvr939l6fkr',
+			oauth_token : '0aiu329widy1qnbk'
+		}
+		var dropbox = new DropboxClient(dropboxParam.consumer_key, dropboxParam.consumer_secret, 
+					dropboxParam.oauth_token, dropboxParam.oauth_token_secret);
+		dropbox.putFile(csvFile, "ewansou-1396232247-fhgjiio987.csv", function (err, data) {
+
+						if(err) {
+							console.log(err);
+						}
+
+					});
+
 	}
 
 	module.exports = File;
