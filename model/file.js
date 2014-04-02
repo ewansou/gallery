@@ -2,8 +2,8 @@
 
 	var csv = require("fast-csv"),
 	fs = require('fs'),
-	csvFile = "data/ewansou-1396232247-fhgjiio987.csv";
-	header = ["username", "timecreated", "10digitrandom"];
+	csvFile = "data/image.csv";
+	header = ["name", "username", "timecreated", "caption"];
 
 	/** add to test */
 	var DropboxClient = require('dropbox-node').DropboxClient;
@@ -61,7 +61,7 @@
 		}
 		var dropbox = new DropboxClient(dropboxParam.consumer_key, dropboxParam.consumer_secret, 
 					dropboxParam.oauth_token, dropboxParam.oauth_token_secret);
-		dropbox.putFile(csvFile, "ewansou-1396232247-fhgjiio987.csv", function (err, data) {
+		dropbox.putFile(csvFile, "image.csv", function (err, data) {
 
 						if(err) {
 							console.log(err);
