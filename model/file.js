@@ -21,7 +21,7 @@
 	}
 
 	File.createFile = function (data) {
-		var ws = fs.createWriteStream(csvFile);
+		var ws = fs.createWriteStream(csvFile , {encoding: 'utf-8'});
 		csv
 			.write( data, {headers: true})
 			.pipe(ws);
