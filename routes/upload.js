@@ -33,10 +33,7 @@ function getRandomFileName(img){
 	for( var i=0; i < 10; i++ ) {
 	    text += possible.charAt(Math.floor(Math.random() * possible.length));
 	}
-	return {
-		name: [img.username, img.created_time, text,".", extension].join(''),
-		randomText: text
-	}
+	return  [[img.username, img.created_time, text].join('-'), ".", extension].join('');
 };
 /*
 * upload file to dropbox
@@ -44,9 +41,7 @@ function getRandomFileName(img){
 exports.upload = function (req, res) {
 	
 	var img = req.body;
-	var oRandomFile = getRandomFileName(img);
-	var filename = oRandomFile.name;
-	var randomText = oRandomFile.randomText;
+	var filename = getRandomFileName(img);
 	var locationPath = imgFolder + filename;
 	var file = fs.createWriteStream(locationPath);
 
@@ -77,9 +72,10 @@ exports.upload = function (req, res) {
 
 				//insert data into csv file
 				insertCsv([
+					filename,
 					img.username,
 					img.created_time,
-					randomText
+					img.caption
 				]);
 
 				res.send({
