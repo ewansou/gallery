@@ -151,14 +151,50 @@ app.get("/views", function(req, res){
  * and send to the client side via socket.emit
  */
 io.sockets.on('connection', function (socket) {
-  Instagram.tags.recent({ 
+  Instagram.tags.recent({
       name: 'nba',
-      count: config.instagram.number_of_image,
-      complete: function(data) {
-        socket.emit('firstShow', { firstShow: data });
+      complete: function(data, pagination) {
+        var count = config.instagram.number_of_image, aResult = [];
+        for( var i = 0; i < count && i < data.length; i++) {
+          aResult.push( data[i] );
+        }
+        count -= data.length;
+
+        getNextPage(count, pagination.next_max_id, aResult, 'nba', function(data){
+           socket.emit('firstShow', { firstShow: data });
+        });
       }
   });
 });
+/**
+ * @param {Int} count number of image
+ * @param {String} next_maxt_id
+ * @param {Array} aResult each time get the data, append to this array
+ * @param {String} tag name of tag to get image from
+ * @param {function} callback the function will be ran when get enough image number
+ */
+function getNextPage(count, next_max_id, aResult, tag, callback) {
+
+  if(count < 0) {
+    callback(aResult);
+    return;
+  }
+
+  Instagram.tags.recent({
+    name: tag,
+    next_max_id: next_max_id,
+    complete: function(data, pagination) {
+      for( var i = 0; i < count && i < data.length; i++) {
+          aResult.push( data[i] );
+      }
+      count -= data.length;
+      getNextPage(count, pagination.next_max_id, aResult, 'nba', callback);
+    }
+  });
+
+}
+
+
 /**
  * Needed to receive the handshake
  */
