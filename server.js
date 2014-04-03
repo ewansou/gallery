@@ -108,7 +108,7 @@ Instagram.subscriptions.subscribe({
 */
 // if you want to unsubscribe to any hashtag you subscribe
 // just need to pass the ID Instagram send as response to you
-Instagram.subscriptions.unsubscribe({ id: '4513959' });
+Instagram.subscriptions.unsubscribe({ id: '4536201' });
 
 // https://devcenter.heroku.com/articles/using-socket-io-with-node-js-on-heroku
 io.configure(function () { 
@@ -153,7 +153,7 @@ app.get("/views", function(req, res){
 io.sockets.on('connection', function (socket) {
 
   Instagram.tags.recent({
-      name: 'nba',
+      name: 'picobunny',
       complete: function(data, pagination) {
 
         var count = config.instagram.number_of_image, aResult = [];
@@ -162,7 +162,7 @@ io.sockets.on('connection', function (socket) {
         }
         count -= data.length;
 
-        getNextPage(count, pagination, aResult, 'nba', function(data) {
+        getNextPage(count, pagination, aResult, 'picobunny', function(data) {
           socket.emit('firstShow', { firstShow: data });
         });
       }
@@ -191,7 +191,7 @@ function getNextPage(count, pagination, aResult, tag, callback) {
           aResult.push( data[i] );
       }
       count -= data.length;
-      getNextPage(count, pagination, aResult, 'nba', callback);
+      getNextPage(count, pagination, aResult, 'picobunny', callback);
 
     }
   });
