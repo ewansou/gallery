@@ -71,7 +71,7 @@ Instagram.set('maxSockets', 10);
  */
 Instagram.subscriptions.subscribe({
   object: 'tag',
-  object_id: 'nba',
+  object_id: 'startupcircle',
   aspect: 'media',
   callback_url: 'http://instagram-real-time.herokuapp.com/callback',
   type: 'subscription',
@@ -153,7 +153,7 @@ app.get("/views", function(req, res){
 io.sockets.on('connection', function (socket) {
 
   Instagram.tags.recent({
-      name: 'nba',
+      name: 'startupcircle',
       complete: function(data, pagination) {
 
         var count = config.instagram.number_of_image, aResult = [];
@@ -162,7 +162,7 @@ io.sockets.on('connection', function (socket) {
         }
         count -= data.length;
 
-        getNextPage(count, pagination, aResult, 'nba', function(data) {
+        getNextPage(count, pagination, aResult, 'startupcircle', function(data) {
           socket.emit('firstShow', { firstShow: data });
         });
       }
@@ -191,7 +191,7 @@ function getNextPage(count, pagination, aResult, tag, callback) {
           aResult.push( data[i] );
       }
       count -= data.length;
-      getNextPage(count, pagination, aResult, 'nba', callback);
+      getNextPage(count, pagination, aResult, 'startupcircle', callback);
 
     }
   });
