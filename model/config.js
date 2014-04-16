@@ -29,7 +29,7 @@ config = {
 		imgfoldername: "/imageupload/",
 		instagram: {
 			// change number of image showed when the page first load
-			number_of_image: 20
+			number_of_image: 7
 		}
 };
 exports.config = config;
