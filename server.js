@@ -78,14 +78,7 @@ Instagram.subscriptions.subscribe({
   id: '#'
 });
 
-Instagram.subscriptions.subscribe({
-  object: 'tag',
-  object_id: 'nba',
-  aspect: 'media',
-  callback_url: 'http://instagram-real-time.herokuapp.com/callback',
-  type: 'subscription',
-  id: '#'
-});
+
 
 /**
  * Uses the library "instagram-node-lib" to Subscribe to the Instagram API Real Time
@@ -120,7 +113,7 @@ Instagram.subscriptions.subscribe({
 //Instagram.subscriptions.unsubscribe({ id: '4606430' });
 //Instagram.subscriptions.unsubscribe({ id: '4572934' });
 //Instagram.subscriptions.unsubscribe({ id: '4608035' });
-Instagram.subscriptions.unsubscribe({ id: '4610659' }); //this is for #nba
+Instagram.subscriptions.unsubscribe({ id: '4610663' }); //this is for #nba
 //Instagram.subscriptions.unsubscribe({ id: '4610657' }); this is for #picobunny
 
 // https://devcenter.heroku.com/articles/using-socket-io-with-node-js-on-heroku
