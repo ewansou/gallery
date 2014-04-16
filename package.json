@@ -5,7 +5,7 @@
   "author": "Michael Lancaster",
   "dependencies": {
     "socket.io": "latest",
-    "express": "latest",
+    "express": "3.0.0",
     "jade": "latest",
     "request": "latest",
     "instagram-node-lib": "~0.1.1",
