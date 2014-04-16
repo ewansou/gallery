@@ -71,7 +71,7 @@ Instagram.set('maxSockets', 10);
  */
 Instagram.subscriptions.subscribe({
   object: 'tag',
-  object_id: 'picobunny',
+  object_id: config.instagram.tagName,
   aspect: 'media',
   callback_url: 'http://instagram-real-time.herokuapp.com/callback',
   type: 'subscription',
@@ -159,7 +159,7 @@ app.get("/views", function(req, res){
 io.sockets.on('connection', function (socket) {
 
   Instagram.tags.recent({
-      name: 'picobunny',
+      name: config.instagram.tagName,
       complete: function(data, pagination) {
 
 
@@ -169,7 +169,7 @@ io.sockets.on('connection', function (socket) {
         }
         count -= data.length;
 
-        getNextPage(count, pagination, aResult, 'picobunny', function(data) {
+        getNextPage(count, pagination, aResult, config.instagram.tagName, function(data) {
           socket.emit('firstShow', { firstShow: data, pagination: pagination });
         });
       }
@@ -198,7 +198,7 @@ function getNextPage(count, pagination, aResult, tag, callback) {
           aResult.push( data[i] );
       }
       count -= data.length;
-      getNextPage(count, pagination, aResult, 'picobunny', callback);
+      getNextPage(count, pagination, aResult, config.instagram.tagName, callback);
 
     }
   });
