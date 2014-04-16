@@ -155,6 +155,7 @@ io.sockets.on('connection', function (socket) {
       name: 'nba',
       complete: function(data, pagination) {
 
+
         var count = config.instagram.number_of_image, aResult = [];
         for( var i = 0; i < count && i < data.length; i++) {
           aResult.push( data[i] );
@@ -162,7 +163,8 @@ io.sockets.on('connection', function (socket) {
         count -= data.length;
 
         getNextPage(count, pagination, aResult, 'nba', function(data) {
-          socket.emit('firstShow', { firstShow: data });
+        
+          socket.emit('firstShow', { firstShow: data, pagination: pagination });
         });
        
       }
@@ -177,7 +179,7 @@ io.sockets.on('connection', function (socket) {
  */
 function getNextPage(count, pagination, aResult, tag, callback) {
 
-  if(count <= 0) {
+  if(count <= 0 || !pagination.next_max_id) {
     callback(aResult);
     return;
   }
