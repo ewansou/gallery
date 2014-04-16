@@ -163,7 +163,7 @@ io.sockets.on('connection', function (socket) {
         }
         count -= data.length;
 
-        getNextPage(count, pagination, aResult, 'nba', function(data) {
+        getNextPage(count, pagination, aResult, 'startupcircle', function(data) {
           socket.emit('firstShow', { firstShow: data, pagination: pagination });
         });
       }
