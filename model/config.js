@@ -30,7 +30,8 @@ config = {
 		instagram: {
 			// change number of image showed when the page first load
 			number_of_image: 7,
-			tagName: 'picobunny'
+			tagName: 'picobunny',
+			unsubscribe_tag_id: '4610663'
 		}
 };
 exports.config = config;

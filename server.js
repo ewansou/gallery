@@ -113,7 +113,7 @@ Instagram.subscriptions.subscribe({
 //Instagram.subscriptions.unsubscribe({ id: '4606430' });
 //Instagram.subscriptions.unsubscribe({ id: '4572934' });
 //Instagram.subscriptions.unsubscribe({ id: '4608035' });
-Instagram.subscriptions.unsubscribe({ id: '4610663' }); //this is for #nba
+Instagram.subscriptions.unsubscribe({ id: config.instagram.unsubscribe_tag_id }); //this is for #nba
 //Instagram.subscriptions.unsubscribe({ id: '4610657' }); this is for #picobunny
 
 // https://devcenter.heroku.com/articles/using-socket-io-with-node-js-on-heroku
