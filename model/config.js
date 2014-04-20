@@ -29,9 +29,9 @@ config = {
 		imgfoldername: "/imageupload/",
 		instagram: {
 			// change number of image showed when the page first load
-			number_of_image: 30,
-			tagName: 'stlldnd',
-			unsubscribe_tag_id: '4617816'
+			number_of_image: 15,
+			tagName: 'tcpartistes',
+			unsubscribe_tag_id: '4651662'
 		}
 };
 exports.config = config;
