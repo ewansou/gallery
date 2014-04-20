@@ -31,7 +31,7 @@ config = {
 			// change number of image showed when the page first load
 			number_of_image: 30,
 			tagName: 'stlldnd',
-			unsubscribe_tag_id: '4610663'
+			unsubscribe_tag_id: '4617816'
 		}
 };
 exports.config = config;
