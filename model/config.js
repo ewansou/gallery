@@ -30,7 +30,7 @@ config = {
 		instagram: {
 			// change number of image showed when the page first load
 			number_of_image: 30,
-			tagName: 'tcpartistes',
+			tagName: 'nba',
 			unsubscribe_tag_id: '4651662'
 		}
 };
