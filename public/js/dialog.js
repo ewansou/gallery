@@ -2,7 +2,7 @@ Dialog = function (context, socket) {
 	
 	this._context = context;
 	this._socket = socket;
-	this.setBehavior(new FirstBehavior(this));
+	this.setBehavior(new ChoosePhotoStyle(this));
 	var
 		source = $('#dialog-tpl').html(),
 		compiledTemplate = Handlebars.compile(source),

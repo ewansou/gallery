@@ -9,7 +9,6 @@ var intervalID;
 var Dropbox         = require('dropbox');
 var uploader = require('./routes/upload');
 var mail = require("./routes/mail");
-var emailModel = require("./model/email");
 var config = require("./model/config").config;
 
 /** 
@@ -245,7 +244,7 @@ app.post('/sendmail', function(req, res){
 
     mail.sendMail(email, filename);
     mail.subscribe(email);
-    mail.insert(email);
+  //  mail.insert(email);
 
     res.end();
 });

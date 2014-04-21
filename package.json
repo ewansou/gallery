@@ -16,8 +16,7 @@
     "mandrill-api": "*",
     "mailchimp-api": "*",
     "pg": "*",
-    "mysql": "2.1.1",
-    "fast-csv": "*"
+    "mysql": "2.1.1"
   },
   "engines": {
     "node": "0.10.12",

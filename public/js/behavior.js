@@ -44,7 +44,7 @@ ChoosePhotoStyle.prototype = new Behavior();
 
 ChoosePhotoStyle.prototype.attachEvent = function () {
 	var self = this;
-	$('.next-image-style').click(function () {
+	$(document).on( 'click', '.next-image-style', function () {
 
 		var img_style = [];
 
@@ -69,7 +69,7 @@ ChoosePhotoStyle.prototype.attachEvent = function () {
 	});
 }
 ChoosePhotoStyle.prototype.detachEvent = function (){
-	$('.next-image-style').off('click');
+	$(document).off( 'click', '.next-image-style');
 	$(".err-msg").addClass("hide");
 }
 /**

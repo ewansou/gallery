@@ -4,7 +4,6 @@ var mandrill = require('mandrill-api/mandrill');
 var mcapi = require('mailchimp-api/mailchimp');
 var fs = require('fs');
 var mandrill_client = new mandrill.Mandrill(config.mandrill.api_key);
-var emailModel = require("../model/email");
 
 var path = require('path'),
 appDir = path.dirname(require.main.filename),
@@ -68,14 +67,11 @@ exports.subscribe = function(email){
 	mc = new mcapi.Mailchimp(config.mailchimp.api_key, { version : '2.0' });
 	
 	mc.lists.subscribe({id: config.mailchimp.list_id, email:{email:email}, double_optin : false}, function(data) {
-	   // console.log(data);
+		// console.log(data);
 	 },
 	  function(error) {
-		 // if(error.error)
-			  //console.log(error.error);
+		// if(error.error){
+		// 	console.log(error.error);
+		// }
 	  });
 };
-
-exports.insert = function(email){
-	emailModel.insert(email);
-}

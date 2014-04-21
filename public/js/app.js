@@ -18,7 +18,40 @@
             //this.aboutInfo();
             //this.mobileNav();
             this.attachImageClicked();
+            this.contextMenu();
+
         },
+        /**
+         *
+         */
+        contextMenu: function () {
+            var $contextMenu = $("#contextMenu");
+
+            var target;
+
+            $("body").on("contextmenu", "a", function(e) {
+                target = $(e.target).parent();
+                $contextMenu.css({
+                    display: "block",
+                    left: e.pageX,
+                    top: e.pageY
+                });
+                return false;
+            });
+
+            $contextMenu.on("click", "a", function() {
+                if (target) {
+                    target.animate({width: 0}, 200, function (){
+                    });
+                }
+            });
+
+            $(document).on("click", function() {
+                $contextMenu.hide();
+                target = null;
+            });
+        },
+        
         /**
          * []
          */
@@ -37,7 +70,7 @@
                 context.created_time = $(this).attr("data-created-time");
 
         		new Dialog(context, socket);
-        		return false;
+        		
         	})
         },
         

@@ -694,3 +694,10 @@ button.close {
 }
 .err-msg{color: red;float: left;clear:both;}
 .hide{display:none;}
+#emailInput {
+  width: 100%;
+}
+#contextMenu {
+  position: absolute;
+  display:none;
+}

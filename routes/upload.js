@@ -8,17 +8,6 @@ var config = require("../model/config").config;
 
 var imgFolder = appDir +config.imgfoldername;
 
-var File = require('../model/file');
-// create csv file if it doesn't exist yet
-File.init();
-
-function insertCsv (item) {
-	var csvWritter = new File();
-	csvWritter.open( function () {
-		csvWritter.insert(item);
-		csvWritter.save ();
-	});
-}
 /**
  * generate file with random name
  * @param url image url to get extension of file
@@ -70,13 +59,6 @@ exports.upload = function (req, res) {
 					});
 				});
 
-				//insert data into csv file
-				insertCsv([
-					filename,
-					img.username.trim(),
-					img.created_time.trim(),
-					img.caption.trim().replace(/(\r\n|\n|\r)/gm," ")
-				]);
 
 				res.send({
 					filename: filename
@@ -97,7 +79,7 @@ exports.removeTempFile = function(){
 				var timeOffset = ((new Date()).getTime() - stats.mtime.getTime())/(1000 * 60 * 60 * 24);
 				//if exist time is more than 1 day => remove
 				if(timeOffset > 1){
-					fs.unlink(imgFolder+files[file]);
+					fs.unlink(imgFolder + files[file]);
 				}
 			}
 		}
