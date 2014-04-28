@@ -19,7 +19,17 @@
             //this.mobileNav();
             this.attachImageClicked();
             this.contextMenu();
+            this.test();
 
+        },
+        /**
+         *
+         */
+        test: function () {
+            var self = this;
+            socket.on('test', function(data) {
+                self.renderTemplate(data);
+            });
         },
         /**
          *

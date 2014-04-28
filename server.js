@@ -164,7 +164,6 @@ io.sockets.on('connection', function (socket) {
       name: config.instagram.tagName,
       complete: function(data, pagination) {
 
-
         var count = config.instagram.number_of_image, aResult = [];
         for( var i = 0; i < count && i < data.length; i++) {
           aResult.push( data[i] );
@@ -229,6 +228,34 @@ app.post('/callback', function(req, res) {
 
     });
     res.end();
+});
+
+/**
+ * for each new post from instantly site
+ */
+app.post('/test', function (req, res) {
+  var data = req.body;
+  // var data = {
+  //   data : [
+  //     {
+  //       images: {
+  //         standard_resolution: {
+  //           url: 'https://s3-ap-southeast-1.amazonaws.com/mobile-instantly/17020-lxcfb0.jpg'
+  //         }
+  //       },
+  //       caption: {
+  //         text: 'instantly-mobile'
+  //       },
+  //       created_time: '1000021',
+  //       user: {
+  //         username: 'instantly-mobile'
+  //       }
+  //     }
+  //   ]
+  // }
+  console.log('a notify received!');
+  io.sockets.emit('test', data);
+  res.end();
 });
 
 /**

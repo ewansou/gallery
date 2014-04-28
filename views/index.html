@@ -81,6 +81,14 @@ Designed with love and for fun by: Daniel Branca (twitter: @designerdanb)
 
 	</script>
 
+	<script id="mobileMostRecent-tpl" type="text/x-handlebars-template">
+
+			<a href="{{data.0.images.standard_resolution.url}}" title="{{data.0.caption.text}}" target="_blank" class="Hvh">
+				<img src="{{data.0.images.standard_resolution.url}}" alt="{{data.0.caption.text}}" data-photo-username="{{data.0.user.username}}" data-created-time="{{data.0.created_time}}"/>
+			</a>
+
+	</script>
+
 	<script id="dialog-tpl" type="text/x-handlebars-template">
 		
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: block;z-index: 1050;">
