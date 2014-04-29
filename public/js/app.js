@@ -141,7 +141,7 @@
                 last = $('#imgContent').find(':first-child').removeClass('Hvh');
 
                 if( w >= 900 ) {
-                    lastAnimate = $('#imgContent').find(':nth-child(2)').addClass('animated fadeInLeft');
+                    lastAnimate = $('#imgContent').find(':nth-child(2)').addClass('animated rotateInDownLeft'); /*change here for animation*/
                 }
                 /*
                 if( w <= 900 ) {

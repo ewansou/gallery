@@ -219,7 +219,8 @@ a:hover {
 #imgContent img { display: block; }
 #imgContent a {
   float: left;
-  width: 16.640625%;
+  width: 25%; /*change here to change grid view*/
+  border:1px solid black;
 }
 #imgContent img {
   width: 100%;
@@ -362,7 +363,7 @@ a:hover {
 
 /***********
 * @animate css
-************/
+
 .animated{-webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;-ms-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-duration:1s;-moz-animation-duration:1s;-ms-animation-duration:1s;-o-animation-duration:1s;animation-duration:1s;}.animated.hinge{-webkit-animation-duration:2s;-moz-animation-duration:2s;-ms-animation-duration:2s;-o-animation-duration:2s;animation-duration:2s;}@-webkit-keyframes pulse {
     0% { -webkit-transform: scale(1); } 50% { -webkit-transform: scale(1.1); }
     100% { -webkit-transform: scale(1); }
@@ -496,7 +497,7 @@ a:hover {
   -moz-animation-name: fadeInLeft;
   -o-animation-name: fadeInLeft;
   animation-name: fadeInLeft;
-}
+}************/
 /***********
 * @modal boostrap css
 ************/
