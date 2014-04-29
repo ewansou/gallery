@@ -57,7 +57,7 @@ a:hover {
 
 /* ==========================================================================
    UI styles: UI Oriented
-   ========================================================================== */
+   ========================================================================== 
 .icon {
   display: block;
 }
@@ -66,14 +66,14 @@ a:hover {
   width: 42px;
   height: 41px;
 }
-
+*/
 /* ==========================================================================
    Layout styles: Layout Oriented
    ========================================================================== */
 
 /***********
 * @top fill
-************/
+
 .topFill {
   position: fixed;
   top: 0;
@@ -84,10 +84,10 @@ a:hover {
   height: 8px;
   z-index: 45;
 }
-
+************/
 /***********
 * @aside
-************/
+
 #aside {
   position: fixed;
   left: 0;
@@ -95,10 +95,10 @@ a:hover {
   z-index: 40;
   border-top: 8px solid #f34e52;
 }
-
+************/
 /***********
 * @logo
-************/
+
 .logo {
   background: #fff;
 }
@@ -106,10 +106,10 @@ a:hover {
   display: block;
   width: 100%;
 }
-
+************/
 /***********
 * @nav
-************/
+
 .nav {
   position: relative;
   background: rgba(255,255,255, 0.9);
@@ -130,8 +130,8 @@ a:hover {
 .nav .extra { 
   color: #aaaaa9;
 }
-
-/* mobile nav */
+************/
+/* mobile nav 
 .mobNav {
   display: none;
   margin: 25px 10px 0 0;
@@ -146,10 +146,10 @@ a:hover {
   height: 2px;
   margin: 5px 0;
 }
-
+*/
 /***********
 * @about
-************/
+
 .aboutWrap {
   position: absolute;
   top: 8px;
@@ -204,7 +204,7 @@ a:hover {
   height: 42px;
   display: block;
 }
-
+************/
 /***********
 * @Image wrapper
 ************/
@@ -228,7 +228,7 @@ a:hover {
 
 /***********
 * @footer
-************/
+
 #footer {
   position: fixed;
   bottom: 0;
@@ -246,8 +246,8 @@ a:hover {
   bottom: 5px;
   pointer-events: auto;
 }
-
-/* social share */
+************/
+/* social share 
 .socialShare {
   margin: 10px 0 0 2%;
 }
@@ -268,7 +268,7 @@ a:hover {
 .bottomLogo {
   margin: -7px 5% 0 0;
 }
-
+*/
 /***********
 * @media queries
 ************/
