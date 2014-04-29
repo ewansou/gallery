@@ -219,7 +219,7 @@ a:hover {
 #imgContent img { display: block; }
 #imgContent a {
   float: left;
-  width: 25%; /*change here to change grid view*/
+  width: 24%; /*change here to change grid view*/
   border:1px solid black;
 }
 #imgContent img {
