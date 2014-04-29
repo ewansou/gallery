@@ -27,6 +27,13 @@ Designed with love and for fun by: Daniel Branca (twitter: @designerdanb)
 	<link rel="stylesheet" href="/css/bootstrap.css">
 	<link rel="stylesheet" href="/css/app.css">
 
+	<link rel="stylesheet" href="/css/demo.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<script type="text/javascript" src="/js/modernizr.custom.26633.js"></script>
+	<noscript>
+	<link rel="stylesheet" href="/css/fallback.css">
+	</noscript>
+
 	<!-- script -->
 	<script src="/js/socket.io.min.js"></script>
 	<script src="/js/jquery.1.9.min.js"></script>
@@ -52,7 +59,7 @@ Designed with love and for fun by: Daniel Branca (twitter: @designerdanb)
 	<!--********************************
 	IMAGE WRAPPER - content
 	*********************************-->
-	<div id="imgContent" class="Hcf" style="margin-bottom:10em;"></div>
+	<div id="imgContent" class="Hcf ri-grid ri-grid-size-1 ri-shadow" style="margin-bottom:10em;"></div>
 	<!--********************************
 	CONTEXT-MENU CONTENT
 	*********************************-->
@@ -112,6 +119,7 @@ Designed with love and for fun by: Daniel Branca (twitter: @designerdanb)
 					      				<label class="checkbox-inline">
 										  <input type="checkbox" class="image-type" value="_4r"> 4R
 										</label>
+										<p>15.2cm(length) by 10.2cm (breadth)</p>
 				      				</div>
 				      				
 				      			</div>
@@ -119,7 +127,8 @@ Designed with love and for fun by: Daniel Branca (twitter: @designerdanb)
 				      				<div>
 					      				<label class="checkbox-inline">
 										  <input type="checkbox" class="image-type" value="half4r"> Half 4R
-										</label>					
+										</label>
+										<p>10.2cm(length) by 7.6cm (breadth)</p>	
 									</div>
 				      				
 			      				</div>
@@ -128,6 +137,7 @@ Designed with love and for fun by: Daniel Branca (twitter: @designerdanb)
 					      				<label class="checkbox-inline">
 										  <input type="checkbox" class="image-type" value="wallet"> Wallet
 										</label>
+										<p>7.6cm(length) by 5.1cm (breadth)</p>
 				      				</div>
 				      				
 		      					</div>
@@ -172,7 +182,23 @@ Designed with love and for fun by: Daniel Branca (twitter: @designerdanb)
 	<script src="/js/app.js"></script>
 	<script src="/js/bootstrap.js"></script>
 	
-
+		<script src="/js/jquery.gridrotator.js"></script>
+	<script>
+	$(function() {
+			
+				$( '#imgContent' ).gridrotator( {
+					w320 : {
+						rows : 3,
+						columns : 4
+					},
+					w240 : {
+						rows : 3,
+						columns : 3
+					}
+				} );
+			
+			});
+	</script>
 
 	<!--[if lt IE 9]>
     </div>
