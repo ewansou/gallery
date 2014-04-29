@@ -722,5 +722,11 @@ float:left;
 
 .footerlogo
 {
-width:15%; 
+width:15%;
+float:right; 
+}
+
+img:nth-last-child(2)
+{
+margin-bottom:10em;  
 }
