@@ -711,3 +711,16 @@ position:fixed;
 bottom:0; 
 opacity:0.9; 
 }
+
+.marqueetext
+{
+font-size:8em;
+width:85%;
+padding:0.2em;
+float:left;  
+}
+
+.footerlogo
+{
+width:15%; 
+}
