@@ -725,8 +725,3 @@ float:left;
 width:15%;
 float:right; 
 }
-
-img:nth-last-child(2)
-{
-margin-bottom:10em;  
-}
