@@ -714,10 +714,10 @@ opacity:0.9;
 
 .marqueetext
 {
-font-size:8em;
+font-size:800%;
 width:85%;
 padding:0.2em;
-float:left;  
+float:left;
 }
 
 .footerlogo
