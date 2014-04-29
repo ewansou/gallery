@@ -68,7 +68,7 @@ Designed with love and for fun by: Daniel Branca (twitter: @designerdanb)
 	<script id="firstShow-tpl" type="text/x-handlebars-template">
 	{{#each firstShow}}
 		<a href="{{images.standard_resolution.url}}" title="{{caption.text}}" target="_blank">
-			<img src="{{images.standard_resolution.url}}" alt="{{caption.text}}" data-photo-username="{{user.username}}" data-created-time="{{created_time}}"/>
+			<img src="{{images.standard_resolution.url}}" alt="{{caption.text}}" data-photo-username="{{user.username}}" data-created-time="{{created_time}}" class="photos" />
 		</a>
 	{{/each}}
 		<div class="footermarquee">
@@ -177,5 +177,11 @@ Designed with love and for fun by: Daniel Branca (twitter: @designerdanb)
 	<!--[if lt IE 9]>
     </div>
   <![endif]-->
+  <script>
+  $(document).ready(function() 
+	{
+	$('.photos').last().addClass('dior');
+	});
+  </script>
 </body>
 </html>
