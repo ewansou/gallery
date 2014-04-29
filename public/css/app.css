@@ -219,8 +219,8 @@ a:hover {
 #imgContent img { display: block; }
 #imgContent a {
   float: left;
-  width: 24%; /*change here to change grid view*/
-  border:1px solid black;
+  width: 25%; /*change here to change grid view*/
+  
 }
 #imgContent img {
   width: 100%;
