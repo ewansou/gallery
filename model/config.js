@@ -30,7 +30,7 @@ config = {
 		instagram: {
 			// change number of image showed when the page first load
 			number_of_image: 13,
-			tagName: 'nba'
+			tagName: 'picobunny'
 		}
 };
 exports.config = config;
