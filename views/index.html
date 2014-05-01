@@ -68,8 +68,8 @@ Designed with love and for fun by: Daniel Branca (twitter: @designerdanb)
 	*********************************-->
 	<script id="firstShow-tpl" type="text/x-handlebars-template">
 	{{#each firstShow}}
-		<a href="{{images.standard_resolution.url}}" title="{{caption.text}}" target="_blank">
-			<img src="{{images.standard_resolution.url}}" alt="{{caption.text}}" data-photo-username="{{user.username}}" data-created-time="{{created_time}}" />
+		<a href="{{link}}" title="{{caption.text}}" target="_blank">
+			<img src="{{images.standard_resolution.url}}" data-photo-username="{{user.username}}" data-created-time="{{created_time}}" />
 		</a>
 	{{/each}}
 		<div class="footermarquee">
@@ -85,8 +85,8 @@ Designed with love and for fun by: Daniel Branca (twitter: @designerdanb)
 
 	<script id="mostRecent-tpl" type="text/x-handlebars-template">
 
-			<a href="{{data.0.images.standard_resolution.url}}" title="{{data.0.caption.text}}" target="_blank" class="Hvh">
-				<img src="{{data.0.images.standard_resolution.url}}" alt="{{data.0.caption.text}}" data-photo-username="{{data.0.user.username}}" data-created-time="{{data.0.created_time}}"/>
+			<a href="{{data.0.link}}" title="{{data.0.caption.text}}" target="_blank" class="Hvh">
+				<img src="{{data.0.images.standard_resolution.url}}" data-photo-username="{{data.0.user.username}}" data-created-time="{{data.0.created_time}}"/>
 			</a>
 
 	</script>
@@ -113,7 +113,7 @@ Designed with love and for fun by: Daniel Branca (twitter: @designerdanb)
 					      				<label class="checkbox-inline" style="float:left;">
 										  <input type="checkbox" class="image-type" value="_4r"> 4R
 										</label>
-										<p>15.2cm(length) by 10.2cm (breadth)</p>
+										<p style="float:left; text-align:left;">15.2cm(length) by 10.2cm (breadth)</p>
 				      				</div>
 				      				
 				      			</div>
