@@ -48,7 +48,9 @@ Designed with love and for fun by: Daniel Branca (twitter: @designerdanb)
       <div class="Hdn">
 	<![endif]-->
 
-
+	<div class="brandinglogo">
+		<img src="/images/Branding-Logo.png" style="width:25%; display:block; float:left;" />
+	</div>
 
 	<!--********************************
 	IMAGE WRAPPER - content
@@ -62,32 +64,24 @@ Designed with love and for fun by: Daniel Branca (twitter: @designerdanb)
 			<li><a tabindex="-1" href="javascript:void(0);">Delete</a></li>
 		</ul>
 	</div>
+
+	<div class="footermarquee">
+		<marquee class="marqueetext" direction="left" behavior="scroll" scrollamount="10" >Click on a photo to have it printed!</marquee>
+		<div class="footerlogo">
+		<img src="/images/Instantly-Logo-Black.png" style="width:160px; padding-top:5px;" />
+		</div>
+	</div>
 	
 	<!--********************************
 	TEMPLATES
 	*********************************-->
 	<script id="firstShow-tpl" type="text/x-handlebars-template">
-	<div class="brandinglogo">
-
-		<span><img src="/images/Branding-Logo.png" style="width:25%; display:block; float:left;" /></span>
-
-	</div>
 
 	{{#each firstShow}}
 		<a href="{{link}}" title="{{caption.text}}" target="_blank">
 			<img src="{{images.standard_resolution.url}}" data-photo-username="{{user.username}}" data-created-time="{{created_time}}" />
 		</a>
 	{{/each}}
-
-	<div class="footermarquee">
-
-		<marquee class="marqueetext" direction="left" behavior="scroll" scrollamount="10" >Click on a photo to have it printed!</marquee>
-
-		<div class="footerlogo">
-			<img src="/images/Instantly-Logo-Black.png" style="width:160px; padding-top:5px;" />
-		</div>
-
-	</div>
 
 	</script>
 
