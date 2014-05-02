@@ -109,15 +109,15 @@ Instagram.subscriptions.subscribe({
 */
 // if you want to unsubscribe to any hashtag you subscribe
 // just need to pass the ID Instagram send as response to you
-//Instagram.subscriptions.unsubscribe({ id: '4606430' });
+Instagram.subscriptions.unsubscribe({ id: '4747734' });
 //Instagram.subscriptions.unsubscribe({ id: '4572934' });
 //Instagram.subscriptions.unsubscribe({ id: '4608035' });
 //Instagram.subscriptions.unsubscribe({ id: config.instagram.unsubscribe_tag_id }); //this is for #nba
 //Instagram.subscriptions.unsubscribe({ id: '4610657' }); this is for #picobunny
-
+/*
 Instagram.tags.unsubscribe_all({
   callback_url: 'http://instagram-real-time.herokuapp.com/callback'
-});
+});*/
 // https://devcenter.heroku.com/articles/using-socket-io-with-node-js-on-heroku
 io.configure(function () { 
   io.set("transports", ["xhr-polling"]); 
