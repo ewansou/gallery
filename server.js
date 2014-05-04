@@ -74,7 +74,7 @@ Instagram.tags.unsubscribe_all({
  * with the tag "hashtag" lollapalooza
  * @type {String}
  */
- 
+
 Instagram.subscriptions.subscribe({
   object: 'tag',
   object_id: config.instagram.tagName,
@@ -123,8 +123,8 @@ Instagram.subscriptions.subscribe({
 
 // https://devcenter.heroku.com/articles/using-socket-io-with-node-js-on-heroku
 io.configure(function () { 
-  io.set("transports", ["xhr-polling"]); 
-  io.set("polling duration", 10); 
+  io.set("transports", ["xhr-polling"]);
+  io.set("polling duration", 10);
 });
 
 
