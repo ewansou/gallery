@@ -77,8 +77,6 @@ Instagram.subscriptions.subscribe({
   id: '#'
 });
 
-
-
 /**
  * Uses the library "instagram-node-lib" to Subscribe to the Instagram API Real Time
  * with the tag "hashtag" lollapalooza2013
