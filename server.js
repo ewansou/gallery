@@ -38,8 +38,6 @@ return;
 */
 
 
-
-
 /**
  * Set the paths for your files
  * @type {[string]}
@@ -96,35 +94,16 @@ Instagram.subscriptions.subscribe({
   id: '#'
 });
 */
-/**
- * Uses the library "instagram-node-lib" to Subscribe to the Instagram API Real Time
- * with the tag "hashtag" lolla2013
- * @type {String}
- 
-Instagram.subscriptions.subscribe({
-  object: 'tag',
-  object_id: 'throwback',
-  aspect: 'media',
-  callback_url: 'http://instagram-real-time.herokuapp.com/callback',
-  type: 'subscription',
-  id: '#'
-});
-*/
+
 // if you want to unsubscribe to any hashtag you subscribe
 // just need to pass the ID Instagram send as response to you
 //Instagram.subscriptions.unsubscribe({ id: '4747758' });
-//Instagram.subscriptions.unsubscribe({ id: '4747693' });
-//Instagram.subscriptions.unsubscribe({ id: '4747743' });
-//Instagram.subscriptions.unsubscribe({ id: config.instagram.unsubscribe_tag_id }); //this is for #nba
-//Instagram.subscriptions.unsubscribe({ id: '4747758' });
-
 
 // https://devcenter.heroku.com/articles/using-socket-io-with-node-js-on-heroku
 io.configure(function () { 
   io.set("transports", ["xhr-polling"]);
   io.set("polling duration", 10);
 });
-
 
 /**
  * Set your app main configuration
@@ -152,7 +131,6 @@ app.get("/views", function(req, res){
 //2205456 is my user id
 //https://api.instagram.com/v1/users/search?q=ewansou&client_id=f0ba06d272b14a9684be7544addb413e data.id will be the user id
 //append user id to get 
-
 
 
 /**
