@@ -273,67 +273,24 @@ a:hover {
 * @media queries
 ************/
 
+.brandinglogostyle
+{
+width:25%;
+display:block;
+float:left;
+padding-top:3.5em;
+}
+
 /* first breakpoint starts here */
 @media all and (max-width: 900px) {
-  /* about */
-  .aboutWrap {
-    top: 118px;
-  }
-  /* topfill */
-  .topFill {
-    background: url(../images/mob-top-fill.jpg) no-repeat 0 0;
-    left: 0;
-  }
-  /* aside */
-  #aside {
-    width: 100%;
-    background: #fff;
-    padding: 0;
-    border-top: none;
-    box-shadow: 0 5px 16px -3px #000;
-  }
-  /* header */
-  #aside header {
-    float: left;
-  }
-  .logo {
-    padding: 0;
-    margin: 10px 0 0 15px;
-  }
-  .logo a {
-    padding: 0;
-  }
-  .logo img {
-    width: 60px;
-  }
-  /* nav */
-  .nav {
-    display: none;
-    clear: both;
-  }
-  .nav.active {
-    display: block;
-  }
-  .nav a {
-    padding: 3% 0 3% 4%;
-  }
-  /* mobile nav */
-  .mobNav {
-    display: block;
-    float: right;
-  }
-  /* about */
-  #about {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    max-width: 100%;
-    padding: 2% 2% 2% 4%;
-  }
+ 
   /* content */
   #imgContent a {
     width: 50%;
+  }
+
+  .brandinglogostyle {
+    width:50%;
   }
 }
 
@@ -345,10 +302,9 @@ a:hover {
     float: none;
     width: 100%;
   }
-  /* footer */
-  #footer {
-    background: #fff;
-    height: 70px;
+  
+  .brandinglogostyle {
+    width:100%;
   }
 
 }
