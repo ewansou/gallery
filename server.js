@@ -69,6 +69,10 @@ Instagram.set('maxSockets', 10);
  * @type {String}
  */
 
+Instagram.tags.unsubscribe_all({
+  callback_url: 'http://instagram-real-time.herokuapp.com/callback'
+});
+
 Instagram.subscriptions.subscribe({
   object: 'tag',
   object_id: config.instagram.tagName,
@@ -113,9 +117,7 @@ Instagram.subscriptions.subscribe({
 //Instagram.subscriptions.unsubscribe({ id: '4747743' });
 //Instagram.subscriptions.unsubscribe({ id: config.instagram.unsubscribe_tag_id }); //this is for #nba
 //Instagram.subscriptions.unsubscribe({ id: '4747758' });
-Instagram.tags.unsubscribe_all({
-  callback_url: 'http://instagram-real-time.herokuapp.com/callback'
-});
+
 
 // https://devcenter.heroku.com/articles/using-socket-io-with-node-js-on-heroku
 io.configure(function () { 
