@@ -281,6 +281,12 @@ float:left;
 padding-top:3.5em;
 }
 
+.instantlylogostyle
+{
+width:160px;
+padding-top:5px;
+}
+
 /* first breakpoint starts here */
 @media all and (max-width: 900px) {
  
@@ -305,6 +311,16 @@ padding-top:3.5em;
   
   .brandinglogostyle {
     width:100%;
+    padding-bottom:3.5em;
+  }
+
+  div.footermarquee {
+    height:7em;
+  }
+
+  .marqueetext {
+    font-size:500%;
+    padding:0.4em;
   }
 
 }
