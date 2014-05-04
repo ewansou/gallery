@@ -17,7 +17,7 @@ config = {
 		mailchimp:{
 			api_key : "f0b814ed416b7898b8b799005a2dec6b-us3",
 			list_id: "b6acd424bf"
-		},g
+		},
 		mysql:{
 			  host     : 'us-cdbr-east-05.cleardb.net',
 			  user     : 'b3039ab65993fb',
