@@ -29,8 +29,8 @@ config = {
 		imgfoldername: "/imageupload/",
 		instagram: {
 			// change number of image showed when the page first load
-			number_of_image: 11,
-			tagName: 'picobunny'
+			number_of_image: 15,
+			tagName: 'tcpartistes'
 		}
 		
 };
