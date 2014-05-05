@@ -23,15 +23,16 @@ config = {
 			  user     : 'b3039ab65993fb',
 			  password : 'cca7b08f',
 			  port: '3306',
-			  charset: 'utf-8',
 			  database: 'heroku_3f325657610cb96'
 		},
 		imgfoldername: "/imageupload/",
 		instagram: {
 			// change number of image showed when the page first load
-			number_of_image: 50,
+			number_of_image: 20,
 			tagName: 'tcpartistes'
-		}
+		},
+		instantlyImg: 'http://instantly-mobile.herokuapp.com/recent/'
+		//instantlyImg: 'http://localhost:3000/recent/'
 		
 };
 exports.config = config;

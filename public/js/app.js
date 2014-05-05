@@ -19,7 +19,16 @@
             //this.mobileNav();
             this.attachImageClicked();
             this.contextMenu();
-
+            this.mostInstantlyUpdate();
+        },
+        /**
+         *
+         */
+        mostInstantlyUpdate: function () {
+            var self = this;
+            socket.on('newinstantlyphoto', function(data) {
+                self.renderTemplate(data);
+            });
         },
         /**
          *

@@ -164,8 +164,14 @@ io.sockets.on('connection', function (socket) {
 function getNextPage(count, pagination, aResult, tag, callback) {
 
   if(count <= 0 || !pagination.next_max_id) {
-    callback(aResult);
-    return;
+
+    getImgFromInstantly (function (aImgs) {
+        var finalArray = merge(aImgs, aResult, config.instagram.number_of_image);
+
+        callback(finalArray);
+    });
+    //callback(aResult);
+    return ;
   }
 
   Instagram.tags.recent({
@@ -183,8 +189,76 @@ function getNextPage(count, pagination, aResult, tag, callback) {
   });
 
 }
+/**
+ *  merge 2 array by created time
+ */
+function merge(array1, array2, limit) {
+  var aResult = [];
+  var i = 0, j = 0;
+  while(1) {
 
+    if(aResult.length == limit) {
+      break;
+    }
 
+    if( i >= array1.length && j >= array2.length ) {
+      break;
+    }
+
+    if( i >= array1.length && j < array2.length ) {
+      aResult.push(array2[j]);
+      j++;
+    }
+
+    if( i < array1.length && j >= array2.length) {
+      aResult.push(array1[i]);
+      i++;
+    }
+
+    if( i < array1.length && j < array2.length ) {
+        if ( array1[i]["created_time"] >= array2[j]["created_time"]) {
+          aResult.push(array1[i]);
+          i++;
+        } else {
+          aResult.push(array2[j]);
+          j++;
+        }
+    }
+
+  }
+  return aResult;
+}
+/**
+ * http:\/\/mobile-instantly.s3-website-ap-southeast-1.amazonaws.com\/7892-14jlo31.png
+ */
+function getImgFromInstantly ( callback ) {
+
+  var rest = require('restler');
+  rest.get(config.instantlyImg + config.instagram.number_of_image).on('complete', function(result) {
+  if (result instanceof Error) {
+    console.log('Error:', result.message);
+    //this.retry(5000); // try again after 5 sec
+  } else {
+    callback(result);
+  }
+});
+
+  // callback([{
+  //   link: "",
+  //   user: {
+  //     username: "test"
+  //   },
+  //   created_time: "1399183626",
+  //   images: {
+  //     standard_resolution: {
+  //       url: "http:\/\/mobile-instantly.s3-website-ap-southeast-1.amazonaws.com\/7892-14jlo31.png"
+  //     }
+  //   },
+  //   caption: {
+  //     text: "test"
+  //   }
+  // }]);
+}
 /**
  * Needed to receive the handshake
  */
@@ -206,6 +280,36 @@ app.post('/callback', function(req, res) {
 
     });
     res.end();
+});
+
+
+
+/**
+ * for each new post from instantly site
+ */
+app.post('/instantly-callback', function (req, res) {
+  var data = req.body;
+  // var data = {
+  //   data : [
+  //     {
+  //       images: {
+  //         standard_resolution: {
+  //           url: 'https://s3-ap-southeast-1.amazonaws.com/mobile-instantly/17020-lxcfb0.jpg'
+  //         }
+  //       },
+  //       caption: {
+  //         text: 'instantly-mobile'
+  //       },
+  //       created_time: '1000021',
+  //       user: {
+  //         username: 'instantly-mobile'
+  //       }
+  //     }
+  //   ]
+  // }
+  //console.log('a notify received!');
+  io.sockets.emit('newinstantlyphoto', data);
+  res.end();
 });
 
 /**
