@@ -6,10 +6,10 @@ var Instagram = require('instagram-node-lib');
 var http = require('http');
 var request = ('request');
 var intervalID;
-var Dropbox         = require('dropbox');
-var uploader = require('./routes/upload');
-var mail = require("./routes/mail");
-var config = require("./model/config").config;
+//var Dropbox         = require('dropbox');
+//var uploader = require('./routes/upload');
+//var mail = require("./routes/mail");
+//var config = require("./model/config").config;
 
 /** 
  * this code is being used to integrate Dropbox account with Dropbox app 
@@ -315,11 +315,11 @@ app.post('/instantly-callback', function (req, res) {
 /**
  * upload image to dropbox
  */
-app.post('/upload', uploader.upload);
+//app.post('/upload', uploader.upload);
 /**
  * 
  */
-app.post('/sendmail', function(req, res){
+//app.post('/sendmail', function(req, res){
     var email = req.body.mail;
     var filename = req.body.filename;
 

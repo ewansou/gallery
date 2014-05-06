@@ -1,3 +1,4 @@
+/*
 (function () {
 
 	var csv = require("fast-csv"),
@@ -50,3 +51,4 @@
 	
 	module.exports = File;
 }) (this);	
+*/

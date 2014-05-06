@@ -17,9 +17,9 @@
             this.getData();
             //this.aboutInfo();
             //this.mobileNav();
-            this.attachImageClicked();
-            this.contextMenu();
-            this.mostInstantlyUpdate();
+            //this.attachImageClicked();
+            //this.contextMenu();
+            //this.mostInstantlyUpdate();
         },
         /**
          *

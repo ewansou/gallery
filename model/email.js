@@ -1,4 +1,4 @@
-
+/*
 var config = require("./config").config;
 (function(){
 		var mysql      = require('mysql');
@@ -15,3 +15,4 @@ var config = require("./config").config;
 			connection.end();
 		}
 })(this);
+*/
