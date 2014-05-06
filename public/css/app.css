@@ -277,7 +277,8 @@ a:hover {
 {
 width: 100%;
 text-align: center; 
-margin: 1em 0;
+padding: 1em 0;
+background:#FFF;
 }
 
 .brandinglogostyle
