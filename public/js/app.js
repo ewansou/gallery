@@ -66,21 +66,21 @@
          */
         attachImageClicked: function(e){
 
-        	var self = this,
-        	context = {};
+            var self = this,
+            context = {};
 
-        	$(imgContent).on('click', 'img', function(e){
+            $(imgContent).on('click', 'img', function(e){
 
-        		e.preventDefault();
+                e.preventDefault();
 
-        		context.url = $(this).attr("src");
+                context.url = $(this).attr("src");
                 context.caption = $(this).attr("alt");
                 context.username = $(this).attr("data-photo-username");
                 context.created_time = $(this).attr("data-created-time");
 
-        		new Dialog(context, socket);
-        		
-        	})
+                new Dialog(context, socket);
+                
+            })
         },
         
         /**
