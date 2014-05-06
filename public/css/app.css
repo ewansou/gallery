@@ -273,20 +273,33 @@ a:hover {
 /***********
 * @media queries
 ************/
+.brandinglogo
+{
+height: 187px;      /* equals max image height */
+width: 25%;
+border: 1px solid black;  
+text-align: center; margin: 1em 0;
+}
+
+.helper
+{
+display: inline-block;
+height: 100%;
+vertical-align: middle;
+}
 
 .brandinglogostyle
 {
-width:25%;
-display:block;
-float:left;
-padding-top:3.5em;
+vertical-align: middle;
+max-height: 187px;
+max-width: 296px;
 }
-
+/*
 .instantlylogostyle
 {
 width:160px;
 padding-top:5px;
-}
+}*/
 
 /* first breakpoint starts here */
 @media all and (max-width: 900px) {
@@ -295,10 +308,10 @@ padding-top:5px;
   #imgContent a {
     width: 50%;
   }
-
+  /*
   .brandinglogostyle {
     width:50%;
-  }
+  }*/
 }
 
 /* last breakpoint starts here */
@@ -309,11 +322,11 @@ padding-top:5px;
     float: none;
     width: 100%;
   }
-  
+  /*
   .brandinglogostyle {
     width:100%;
     padding-bottom:3.5em;
-  }
+  }*/
 
   div.footermarquee {
     height:7em;
