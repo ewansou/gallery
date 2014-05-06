@@ -1,3 +1,4 @@
+/*
 Dialog = function (context, socket) {
 	
 	this._context = context;
@@ -60,9 +61,6 @@ Dialog.prototype._printPhoto = function() {
 	popup.print();
 };
 
-/**
-* 
-*/
 Dialog.prototype.setImgType = function (type) {
 	this._imgType = type;
 }
@@ -77,3 +75,4 @@ Dialog.prototype.next = function (newbehavior) {
 	this._carousel.carousel('next');
 	this.setBehavior(newbehavior);
 }
+*/

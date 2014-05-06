@@ -1,3 +1,4 @@
+/*
 Behavior = function (dialog) {
 	this._dialog = dialog;
 }
@@ -72,9 +73,9 @@ ChoosePhotoStyle.prototype.detachEvent = function (){
 	$(document).off( 'click', '.next-image-style');
 	$(".err-msg").addClass("hide");
 }
-/**
-* print out action
-*/
+
+//print out action
+
 Printout = function (dialog){
 	Behavior.call(this, dialog);
 }
@@ -119,7 +120,7 @@ Printout.prototype._isValidEmail = function (mail) {
 	var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 	return filter.test(mail);
 };
-
+*/
 
 
 
