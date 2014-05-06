@@ -319,7 +319,8 @@ app.post('/instantly-callback', function (req, res) {
 /**
  * 
  */
-//app.post('/sendmail', function(req, res){
+/*
+app.post('/sendmail', function(req, res){
     var email = req.body.mail;
     var filename = req.body.filename;
 
@@ -329,7 +330,7 @@ app.post('/instantly-callback', function (req, res) {
 
     res.end();
 });
-
+ */
 /**
  * clean up temporary image folder
  */
