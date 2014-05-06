@@ -6,10 +6,10 @@ var Instagram = require('instagram-node-lib');
 var http = require('http');
 var request = ('request');
 var intervalID;
-//var Dropbox         = require('dropbox');
-//var uploader = require('./routes/upload');
-//var mail = require("./routes/mail");
-//var config = require("./model/config").config;
+var Dropbox         = require('dropbox');
+var uploader = require('./routes/upload');
+var mail = require("./routes/mail");
+var config = require("./model/config").config;
 
 /** 
  * this code is being used to integrate Dropbox account with Dropbox app 
@@ -49,16 +49,16 @@ var pub = __dirname + '/public',
  * Set the 'client ID' and the 'client secret' to use on Instagram
  * @type {String}
  */
-var clientID = 'f0ba06d272b14a9684be7544addb413e',
-    clientSecret = 'b12a9368332b4a63aa2c38328757c819';
+var clientID = '45858dad9d4f40c1bbc007191469abf7',
+    clientSecret = '78255e3a2797418c81f7d442900ef405';
 
 /**
  * Set the configuration
  */
 Instagram.set('client_id', clientID);
 Instagram.set('client_secret', clientSecret);
-Instagram.set('callback_url', 'http://instagram-real-time.herokuapp.com/callback');
-Instagram.set('redirect_uri', 'http://instagram-real-time.herokuapp.com');
+Instagram.set('callback_url', 'http://event-instantly.herokuapp.com/callback');
+Instagram.set('redirect_uri', 'http://event-instantly.herokuapp.com');
 Instagram.set('maxSockets', 10);
 
 /**
@@ -71,7 +71,7 @@ Instagram.subscriptions.subscribe({
   object: 'tag',
   object_id: config.instagram.tagName,
   aspect: 'media',
-  callback_url: 'http://instagram-real-time.herokuapp.com/callback',
+  callback_url: 'http://event-instantly.herokuapp.com/callback',
   type: 'subscription',
   id: '#'
 });
@@ -95,7 +95,7 @@ Instagram.subscriptions.subscribe({
 // just need to pass the ID Instagram send as response to you
 //Instagram.subscriptions.unsubscribe({ id: '4774749' });
 Instagram.tags.unsubscribe_all({
-  callback_url: 'http://instagram-real-time.herokuapp.com/callback'
+  callback_url: 'http://event-instantly.herokuapp.com/callback'
 });
 // https://devcenter.heroku.com/articles/using-socket-io-with-node-js-on-heroku
 io.configure(function () { 
@@ -275,7 +275,7 @@ app.post('/callback', function(req, res) {
     // Grab the hashtag "tag.object_id"
     // concatenate to the url and send as a argument to the client side
     data.forEach(function(tag) {
-      var url = 'https://api.instagram.com/v1/tags/' + tag.object_id + '/media/recent?client_id=f0ba06d272b14a9684be7544addb413e';
+      var url = 'https://api.instagram.com/v1/tags/' + tag.object_id + '/media/recent?client_id=45858dad9d4f40c1bbc007191469abf7';
       sendMessage(url);
 
     });
@@ -315,11 +315,10 @@ app.post('/instantly-callback', function (req, res) {
 /**
  * upload image to dropbox
  */
-//app.post('/upload', uploader.upload);
+app.post('/upload', uploader.upload);
 /**
  * 
  */
-/*
 app.post('/sendmail', function(req, res){
     var email = req.body.mail;
     var filename = req.body.filename;
@@ -330,7 +329,7 @@ app.post('/sendmail', function(req, res){
 
     res.end();
 });
- */
+
 /**
  * clean up temporary image folder
  */
