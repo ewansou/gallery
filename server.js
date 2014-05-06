@@ -165,12 +165,12 @@ function getNextPage(count, pagination, aResult, tag, callback) {
 
   if(count <= 0 || !pagination.next_max_id) {
 
-    getImgFromInstantly (function (aImgs) {
-        var finalArray = merge(aImgs, aResult, config.instagram.number_of_image);
+    // getImgFromInstantly (function (aImgs) {
+    //     var finalArray = merge(aImgs, aResult, config.instagram.number_of_image);
 
-        callback(finalArray);
-    });
-    //callback(aResult);
+    //     callback(finalArray);
+    // });
+    callback(aResult);
     return ;
   }
 
