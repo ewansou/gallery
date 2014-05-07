@@ -323,11 +323,6 @@ padding-top:5px;
     height:7em;
   }
 
-  .marqueetext {
-    font-size:500%;
-    padding:0.4em;
-  }
-
 }
 
 @viewport{
@@ -694,7 +689,7 @@ opacity:0.9;
 {
 font-size:800%;
 width:100%;
-padding:0.2em;
+padding:10px;
 float:left;
 }
 
