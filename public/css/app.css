@@ -319,10 +319,6 @@ padding-top:5px;
     padding-bottom:3.5em;
   }*/
 
-  div.footermarquee {
-    height:7em;
-  }
-
 }
 
 @viewport{
@@ -678,7 +674,7 @@ button.close {
 div.footermarquee
 {
 width:100%;
-height:10em;
+height:90px;
 background:#e7e7e7;
 position:fixed;
 bottom:0; 
