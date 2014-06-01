@@ -28,8 +28,8 @@ config = {
 		imgfoldername: "/imageupload/",
 		instagram: {
 			// change number of image showed when the page first load
-			number_of_image: 300,
-			tagName: 'instantlysg'
+			number_of_image: 3,
+			tagName: 'ootd'
 		},
 		instantlyImg: 'http://instantly-mobile.herokuapp.com/recent/'
 		//instantlyImg: 'http://localhost:3000/recent/'
