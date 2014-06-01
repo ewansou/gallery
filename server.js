@@ -98,7 +98,7 @@ Instagram.tags.unsubscribe_all({
   callback_url: 'http://instantly-gallery.herokuapp.com/callback'
 });
 // https://devcenter.heroku.com/articles/using-socket-io-with-node-js-on-heroku
-io.configure(function () { 
+io.configure(function () {
   io.set("transports", ["xhr-polling"]);
   io.set("polling duration", 10);
 });
@@ -191,7 +191,7 @@ function getNextPage(count, pagination, aResult, tag, callback) {
 }
 /**
  *  merge 2 array by created time
- */
+ 
 function merge(array1, array2, limit) {
   var aResult = [];
   var i = 0, j = 0;
@@ -228,6 +228,7 @@ function merge(array1, array2, limit) {
   }
   return aResult;
 }
+*/
 /**
  * http:\/\/mobile-instantly.s3-website-ap-southeast-1.amazonaws.com\/7892-14jlo31.png
  */
